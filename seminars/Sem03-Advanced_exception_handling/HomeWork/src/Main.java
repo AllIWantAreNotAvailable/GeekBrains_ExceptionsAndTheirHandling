@@ -5,6 +5,10 @@ import Application.Model.Application;
 import java.util.Arrays;
 
 /**
+ * Release v1.0: Implemented MVC architecture, Singleton pattern for view layer, data validation, and file saving
+ * service. Added input data parsing, error handling, and file writing functionality. Fixed minor bugs and improved
+ * user input validation. Updated documentation.
+ * <p>
  * Точка входа в приложение.
  * <p>
  * Этот класс представляет собой точку входа в приложение. Он создает объект {@link ApplicationController},

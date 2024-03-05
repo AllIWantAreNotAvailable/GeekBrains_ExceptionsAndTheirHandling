@@ -1,8 +1,8 @@
 package Application.Exception.Application.Service;
 
-import Application.Exception.ApplicationException;
+import Application.Exception.Application.ServiceException;
 
-public class DataSaverException extends ApplicationException {
+public class DataSaverException extends ServiceException {
 
     public DataSaverException(Exception cause) {
         super("Ошибка сервиса сохранения данных в файл:", cause);

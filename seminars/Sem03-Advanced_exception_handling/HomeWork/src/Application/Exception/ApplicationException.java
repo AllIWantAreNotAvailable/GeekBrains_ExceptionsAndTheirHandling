@@ -1,6 +1,5 @@
 package Application.Exception;
 
-// TODO JavaDoc
 public class ApplicationException extends Exception {
 
     public ApplicationException() {

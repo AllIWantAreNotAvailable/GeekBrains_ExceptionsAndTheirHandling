@@ -4,11 +4,8 @@ import Application.Exception.Application.Service.DataValidation.*;
 import Application.Exception.Application.Service.DataValidationException;
 import Application.Exception.Application.ViewException;
 import Application.Exception.ApplicationException;
-import Application.Model.Application;
+import Application.Model.*;
 import Application.Model.DataRetrieval.*;
-import Application.Model.DataRetrievalService;
-import Application.Model.DataValidationService;
-import Application.Model.Service;
 import Application.View.View;
 
 import java.util.*;
@@ -81,7 +78,7 @@ public class ApplicationController extends BaseController implements Application
         // 2. Добавляем задачу валидации данных.
         this.getStack().addLast(new DataValidationService());
         // 3. Добавляем задачу записи данных.
-        // TODO Написать и добавить сервис
+        this.getStack().addLast(new DataSaverService());
         // 4. Начинаем выполнять задачи:
         while (!this.getStack().isEmpty()) {
             // Достаем задачу из стека.

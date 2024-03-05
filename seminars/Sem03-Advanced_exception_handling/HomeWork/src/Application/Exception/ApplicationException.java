@@ -2,10 +2,6 @@ package Application.Exception;
 
 public class ApplicationException extends Exception {
 
-    public ApplicationException() {
-        this("Приложение неожидано завершило работу из-за непредвиденной ошибки.");
-    }
-
     public ApplicationException(String message) {
         this(message, null, false, true);
     }

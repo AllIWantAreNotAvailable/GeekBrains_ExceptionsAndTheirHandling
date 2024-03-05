@@ -8,8 +8,4 @@ public class SurnameRetrievalError extends DataRetrievalException {
         super("Ошибка получения фамилии пользователя:", cause);
     }
 
-    public SurnameRetrievalError(String message, Exception cause) {
-        super(message, cause);
-    }
-
 }

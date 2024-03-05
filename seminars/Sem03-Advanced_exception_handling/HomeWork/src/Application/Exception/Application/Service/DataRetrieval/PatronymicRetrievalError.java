@@ -8,8 +8,4 @@ public class PatronymicRetrievalError extends DataRetrievalException {
         super("Ошибка получения отчества пользователя:", cause);
     }
 
-    public PatronymicRetrievalError(String message, Exception cause) {
-        super(message, cause);
-    }
-
 }

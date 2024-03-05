@@ -8,8 +8,4 @@ public class GenderRetrievalError extends DataRetrievalException {
         super("Ошибка получения пола пользователя:", cause);
     }
 
-    public GenderRetrievalError(String message, Exception cause) {
-        super(message, cause);
-    }
-
 }

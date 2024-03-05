@@ -8,8 +8,4 @@ public class NameRetrievalError extends DataRetrievalException {
         super("Ошибка получения имени пользователя:", cause);
     }
 
-    public NameRetrievalError(String message, Exception cause) {
-        super(message, cause);
-    }
-
 }

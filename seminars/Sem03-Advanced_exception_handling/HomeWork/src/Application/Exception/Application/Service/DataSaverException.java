@@ -8,8 +8,4 @@ public class DataSaverException extends ServiceException {
         super("Ошибка сервиса сохранения данных в файл:", cause);
     }
 
-    public DataSaverException(String message, Exception cause) {
-        super(message, cause);
-    }
-
 }

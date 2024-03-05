@@ -17,10 +17,6 @@ public class ApplicationController extends BaseController implements Application
     private Deque<Service> stack;
     private List<AutoCloseable> toClose;
 
-    public ApplicationController() {
-        this(new ArrayList<>());
-    }
-
     public ApplicationController(List<String> data) {
         this.setData(data);
         this.setView(new ViewController());

@@ -8,10 +8,6 @@ public class ServiceException extends ApplicationException {
         super(message);
     }
 
-    public ServiceException(Exception cause) {
-        super("Ошибка главного сервиса приложения:", cause);
-    }
-
     public ServiceException(String message, Exception cause) {
         super(message, cause);
     }

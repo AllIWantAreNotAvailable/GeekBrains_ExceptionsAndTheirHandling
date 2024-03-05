@@ -3,9 +3,7 @@ package Application.Model.DataValidation;
 import Application.Exception.Application.Service.DataValidation.NotEnoughDataError;
 import Application.Exception.Application.Service.DataValidation.RedundantDataError;
 import Application.Model.DataValidationService;
-import Application.Model.Service;
 
-import java.util.Deque;
 import java.util.List;
 
 public class DataAmountValidator extends DataValidationService {

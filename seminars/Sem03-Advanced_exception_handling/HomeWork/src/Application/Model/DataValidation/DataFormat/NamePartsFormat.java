@@ -7,9 +7,7 @@ import Application.Model.DataValidation.DataFormat.NameParts.NameFormat;
 import Application.Model.DataValidation.DataFormat.NameParts.PatronymicFormat;
 import Application.Model.DataValidation.DataFormat.NameParts.SurnameFormat;
 import Application.Model.DataValidation.DataFormatValidator;
-import Application.Model.Service;
 
-import java.util.Deque;
 import java.util.List;
 
 public class NamePartsFormat extends DataFormatValidator {

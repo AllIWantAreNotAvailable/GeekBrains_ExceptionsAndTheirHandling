@@ -8,8 +8,4 @@ public class PhoneNumberRetrievalError extends DataRetrievalException {
         super("Ошибка получения номера телефона пользователя:", cause);
     }
 
-    public PhoneNumberRetrievalError(String message, Exception cause) {
-        super(message, cause);
-    }
-
 }

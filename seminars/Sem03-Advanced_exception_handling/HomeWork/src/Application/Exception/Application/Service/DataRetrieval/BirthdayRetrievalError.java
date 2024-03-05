@@ -8,8 +8,4 @@ public class BirthdayRetrievalError extends DataRetrievalException {
         super("Ошибка получения даты рождения пользователя:", cause);
     }
 
-    public BirthdayRetrievalError(String message, Exception cause) {
-        super(message, cause);
-    }
-
 }

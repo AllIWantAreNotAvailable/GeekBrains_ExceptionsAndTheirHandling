@@ -6,6 +6,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.NoSuchElementException;
 
+/**
+ * <p>Реализация view-слоя приложения для взаимодействия с пользователем через терминал.
+ * <p>Использует стандартный поток ввода/вывода для чтения ввода пользователя и вывода сообщений.
+ * <p>Реализует методы интерфейса {@link View}, предоставляющие функциональность для отправки запросов,
+ * получения ответов и закрытия ресурсов представления.
+ */
 public class TerminalView extends BaseView {
 
     private static BufferedReader reader;

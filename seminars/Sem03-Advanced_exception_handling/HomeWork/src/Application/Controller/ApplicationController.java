@@ -10,6 +10,10 @@ import Application.View.View;
 
 import java.util.*;
 
+/**
+ * Класс-контроллер для управления приложением.
+ * Реализует интерфейс {@link Application.Model.Application}.
+ */
 public class ApplicationController extends BaseController implements Application {
 
     private List<String> data;
@@ -17,6 +21,11 @@ public class ApplicationController extends BaseController implements Application
     private Deque<Service> stack;
     private List<AutoCloseable> toClose;
 
+    /**
+     * Конструктор с параметром, инициализирует данные приложения и его компоненты.
+     *
+     * @param data список строк с данными
+     */
     public ApplicationController(List<String> data) {
         this.setData(data);
         this.setView(new ViewController());
@@ -24,44 +33,94 @@ public class ApplicationController extends BaseController implements Application
         this.setToClose(new ArrayList<>());
     }
 
+    /**
+     * Получает данные приложения.
+     *
+     * @return список строк с данными
+     */
     public List<String> getData() {
         return data;
     }
 
+    /**
+     * Устанавливает данные приложения.
+     *
+     * @param data список строк с данными
+     */
     public void setData(List<String> data) {
         this.data = data;
     }
 
+    /**
+     * Получает объект представления для управления.
+     *
+     * @return объект представления
+     */
     public View getView() {
         return this.view;
     }
 
+    /**
+     * Устанавливает объект представления для управления.
+     *
+     * @param view объект представления
+     */
     public void setView(View view) {
         this.view = view;
     }
 
+    /**
+     * Получает стек задач приложения.
+     *
+     * @return стек задач
+     */
     public Deque<Service> getStack() {
         return this.stack;
     }
 
+    /**
+     * Устанавливает стек задач приложения.
+     *
+     * @param stack стек задач
+     */
     public void setStack(Deque<Service> stack) {
         this.stack = stack;
     }
 
+    /**
+     * Получает список объектов, которые должны быть закрыты по завершении работы приложения.
+     *
+     * @return список объектов для закрытия
+     */
     public List<AutoCloseable> getToClose() {
         return this.toClose;
     }
 
+    /**
+     * Устанавливает список объектов, которые должны быть закрыты по завершении работы приложения.
+     *
+     * @param toClose список объектов для закрытия
+     */
     public void setToClose(List<AutoCloseable> toClose) {
         this.toClose = toClose;
     }
 
+    /**
+     * Проверяет, были ли предоставлены параметры запуска приложения.
+     *
+     * @return true, если параметры были предоставлены, иначе false
+     */
     @Override
     public boolean isStartupParameters() {
         List<String> data = this.getData();
         return data != null && !data.isEmpty();
     }
 
+    /**
+     * Запускает выполнение приложения.
+     *
+     * @throws ApplicationException если происходит ошибка выполнения приложения
+     */
     @Override
     public void run() throws ApplicationException {
         // 1. Получение данных:
@@ -102,8 +161,15 @@ public class ApplicationController extends BaseController implements Application
         }
     }
 
+    /**
+     * Обработчик исключений при валидации данных.
+     *
+     * @param exception исключение, которое произошло при валидации данных
+     * @throws ViewException           если происходит ошибка при взаимодействии с представлением
+     * @throws DataValidationException если происходит ошибка валидации данных
+     */
     private void dataValidationExceptionHandler(DataValidationException exception) throws ViewException, DataValidationException {
-        this.getView().request(exception.getMessage() + "\nПовторите ввод данных.\n");
+        this.getView().request("\n" + exception.getMessage() + "Повторите ввод данных.\n\n");
         switch (exception) {
             case NotEnoughDataError ignored -> this.getStack().push(new DataRetrievalService());
             case RedundantDataError ignored -> this.getStack().push(new DataRetrievalService());
@@ -117,6 +183,11 @@ public class ApplicationController extends BaseController implements Application
         }
     }
 
+    /**
+     * Закрывает ресурсы приложения.
+     *
+     * @throws ApplicationException если происходит ошибка при закрытии ресурсов
+     */
     @Override
     public void close() throws ApplicationException {
         ListIterator<AutoCloseable> iterator = this.getToClose().listIterator(toClose.size());
